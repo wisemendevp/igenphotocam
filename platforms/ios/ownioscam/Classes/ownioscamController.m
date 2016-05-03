@@ -39,7 +39,7 @@
 
 -(IBAction) cancel:(id)sender forEvent:(UIEvent*)event {
     // Call the takePicture method on the UIImagePickerController to capture the image.
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     
     NSString * imgarray = [defaults objectForKey:@"k1"];
@@ -47,6 +47,13 @@
     [self.plugin capturedImageWithPath:imgarray];
     [defaults removeObjectForKey:@"k1"];
    
+}
+-(NSString*)generateRandomString:(int)num {
+    NSMutableString* string = [NSMutableString stringWithCapacity:num];
+    for (int i = 0; i < num; i++) {
+        [string appendFormat:@"%C", (unichar)('a' + arc4random_uniform(25))];
+    }
+    return string;
 }
 
 // Delegate method.  UIImagePickerController will call this method as soon as the image captured above is ready to be processed.  This is also like an event callback in JavaScript.
@@ -57,12 +64,7 @@
     
     self.ImageView.image = image;
     
-    NSDate *currentDate = [NSDate date];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd.MM.YY HH:mm:ss"];
-    NSString *dateString = [dateFormatter stringFromDate:currentDate];
-    
-    NSString* string = dateString;
+     NSString* string = [self generateRandomString:5];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     
