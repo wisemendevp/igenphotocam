@@ -134,7 +134,7 @@
         NSString * _sbufferc =   [defaults objectForKey:@"k2"];
         _sbufferc = [_sbufferc stringByAppendingString:@","];
         
-        _sbufferc = [_sbufferc stringByAppendingString:imagePath];
+        _sbufferc = [_sbufferc stringByAppendingString:compressed_imagePath];
         [defaults setObject:_sbufferc forKey:@"k2"];
         
         
