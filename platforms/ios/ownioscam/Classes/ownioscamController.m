@@ -3,6 +3,10 @@
 
 @implementation ownioscamController
 
+-(BOOL)     shouldAutorotate
+{
+    return NO;
+}
 // Entry point method
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -16,6 +20,7 @@
         self.picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
         self.picker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
         self.picker.showsCameraControls = NO;
+         self.picker.toolbarHidden=YES;
         
         // Make us the delegate for the UIImagePickerController
        
