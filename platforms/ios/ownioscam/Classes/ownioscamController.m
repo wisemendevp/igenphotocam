@@ -104,7 +104,7 @@
      NSString* compressed_imagePath = [documentsDirectory stringByAppendingPathComponent:compressed_filename];
     
     // Get the image data (blocking; around 1 second)
-    NSData* imageData = UIImageJPEGRepresentation(image, 0.5);
+    NSData* imageData = UIImageJPEGRepresentation(image, 1.0);
     [imageData writeToFile:imagePath atomically:YES];
     
     
@@ -113,7 +113,7 @@
     newImage=[self resizeImage:newImage newSize:size];
     
     
-    NSData* compressed_imageData = UIImageJPEGRepresentation(newImage, 1.0);
+    NSData* compressed_imageData = UIImageJPEGRepresentation(newImage, 0.4);
     [compressed_imageData writeToFile:compressed_imagePath atomically:YES];
     
     
