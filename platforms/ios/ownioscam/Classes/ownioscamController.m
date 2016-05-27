@@ -109,7 +109,7 @@
     
     
     UIImage *newImage=image;
-    CGSize size=CGSizeMake(110,110);
+    CGSize size=CGSizeMake(1000,1000);
     newImage=[self resizeImage:newImage newSize:size];
     
     
