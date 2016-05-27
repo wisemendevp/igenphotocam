@@ -113,7 +113,7 @@
     newImage=[self resizeImage:newImage newSize:size];
     
     
-    NSData* compressed_imageData = UIImageJPEGRepresentation(newImage, 0.5);
+    NSData* compressed_imageData = UIImageJPEGRepresentation(newImage, 1.0);
     [compressed_imageData writeToFile:compressed_imagePath atomically:YES];
     
     
