@@ -108,12 +108,80 @@
     [imageData writeToFile:imagePath atomically:YES];
     
     
+   // UIImage *newImage=image;
+        
     UIImage *newImage=image;
-    CGSize size=CGSizeMake(1000,1000);
+    CGFloat height = newImage.size.height;
+    CGFloat width = newImage.size.width;
+    CGFloat tempheight ;
+    CGFloat tempwidth ;
+  //  CGSize size;
+    
+    if(height > width)
+    {
+    //portrait
+      
+        if(height > 960 )
+        {
+            tempheight = 960;
+            // size=CGSizeMake(110,110);
+        }
+        else
+        {
+            tempheight = height;
+       
+        }
+        
+        if(width > 720 )
+        {
+          
+            tempwidth = 720;
+        }
+        else
+        {
+          
+            tempwidth = width;
+        }
+      
+        
+    }
+    
+    if(width > height)
+    {
+        //landscape
+        if(height > 720 )
+        {
+            tempheight  = 720;
+        }
+        else
+        {
+            tempheight = height;
+            
+        }
+        
+        if(width > 960 )
+        {
+            tempwidth = 960;
+        }
+        else
+        {
+            tempwidth = width;
+            
+        }
+
+    }
+    
+    CGFloat ht = tempheight;
+    CGFloat wt = tempwidth;
+    
+ // CGSize size=CGSizeMake(110,110);
+    CGSize size = CGSizeMake(wt,ht);
+    
+    //CGSize size=CGSizeMake(1000,1000);
     newImage=[self resizeImage:newImage newSize:size];
     
     
-    NSData* compressed_imageData = UIImageJPEGRepresentation(newImage, 0.4);
+    NSData* compressed_imageData = UIImageJPEGRepresentation(newImage, 0.5);
     [compressed_imageData writeToFile:compressed_imagePath atomically:YES];
     
     
