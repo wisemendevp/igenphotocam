@@ -14,7 +14,9 @@
         // Instantiate the UIImagePickerController instance
         self.picker = [[UIImagePickerController alloc] init];
          self.picker.delegate = self;
-            self.picker.modalPresentationStyle = UIInterfaceOrientationPortrait;
+           // self.picker.modalPresentationStyle = UIInterfaceOrientationPortrait;
+            self.picker.modalPresentationStyle = UIDeviceOrientationPortrait;
+        self.picker.modalTransitionStyle = UIDeviceOrientationPortrait;
         // Configure the UIImagePickerController instance
         self.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         self.picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
