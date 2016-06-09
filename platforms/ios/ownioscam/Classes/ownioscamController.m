@@ -13,7 +13,7 @@
     if (self) {
         // Instantiate the UIImagePickerController instance
         self.picker = [[UIImagePickerController alloc] init];
-         self.picker.delegate = self;
+        
            // self.picker.modalPresentationStyle = UIInterfaceOrientationPortrait;
           //  self.picker.modalPresentationStyle = UIDeviceOrientationPortrait;
        // self.picker.modalTransitionStyle = UIDeviceOrientationPortrait;
@@ -33,12 +33,20 @@
         self.view.frame = screenFrame;
         self.picker.view.frame = screenFrame;
         
+         self.view.userInteractionEnabled = YES;
+        
+        UIPinchGestureRecognizer *pinchRec = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(doPinch)];
+        [self.view addGestureRecognizer:pinchRec];
         // Set this VC's view as the overlay view for the UIImagePickerController
         self.picker.cameraOverlayView = self.view;
+        
+         self.picker.delegate = self;
     }
     return self;
 }
 
+-(void) doPinch
+{}
 // Action method.  This is like an event callback in JavaScript.
 -(IBAction) takePhotoButtonPressed:(id)sender forEvent:(UIEvent*)event {
     // Call the takePicture method on the UIImagePickerController to capture the image.
